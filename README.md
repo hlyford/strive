@@ -1,6 +1,7 @@
 start application locally:
 - run `npm install` to get node modules
 - `node app.js`
+- application served at `localhost:3000`
 
 application live at: https://strive-henry.herokuapp.com/
 
