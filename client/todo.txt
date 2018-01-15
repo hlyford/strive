@@ -1,0 +1,18 @@
+todo
+
+product
+- open eval in new window
+- validate questions for blank strings as well
+- block refresh on eval
+
+
+
+general
+- server
+- db
+- hosting (heroku)
+- modularize clientside JS more
+
+
+
+https://www.ondemandassessment.com/index.php/verify/apply/eyAAeye/hTbPanba
