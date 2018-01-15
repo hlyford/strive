@@ -1,18 +1,17 @@
 todo
 
 product
-- open eval in new window
-  - solution: pass user data to new window in query string
-- timer for first question
-  - solution: ready event on 'eval.html' load
+- open eval in new window  
 - handle refresh on eval
   - maybe solution: if they refresh, read query string for the question
+- more robust form validation
 
 
 general if time
 - db
 - hosting (heroku)
 - modularize clientside JS more
+- separate routing and handler files for server
 
 
 

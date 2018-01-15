@@ -3,14 +3,7 @@ $( document ).ready(function() {
   // On 'submit' click, validate the form
   $('.submit').click(function() {
     validateForm();
-  });
-
-  // Store the user's name and email
-  var userInfo = {
-    first: 'testie',
-    last: 'mcTestFace',
-    email: 'testCity@gmail.com'
-  };
+  });  
 
   function validateForm() {    
     // Check if the form is complete
@@ -21,10 +14,10 @@ $( document ).ready(function() {
       alert('You must enter all the fields and accept the terms.')
     } else {
       // If form is complete, open evaluation
-      userInfo['first'] = $('form input#first').val();
-      userInfo['last'] = $('form input#last').val();
-      userInfo['email']= $('form input#email').val()
-      window.open('./eval.html?q=0', '_blank',);      
+      var firstName = $('form input#first').val();
+      var lastName = $('form input#last').val();
+      var email = $('form input#email').val()
+      window.open('./eval.html?q=0&f=' + firstName + '&l=' + lastName + '&e=' + email, '_blank',);      
     }
   }
 
@@ -68,7 +61,20 @@ $( document ).ready(function() {
       response: ''
     },
   ];
-  
+
+  // Check if on eval page and start initial timer and store user info
+  if (window.location.pathname === '/eval.html') {
+    timer(0);
+
+    // Get URL query string
+    var queryString = getUrlVars();    
+    // Store the user's name and email
+    var userInfo = {
+      first: queryString['f'],
+      last: queryString['l'],
+      email: queryString['e']
+    };
+  }
   // Listen for submit button click
   $('.submitAnswer').click(function() {
     handleSubmitClick();
@@ -160,5 +166,19 @@ $( document ).ready(function() {
     ret += "" + secs;
     return ret;
   }
+
+  // Read a page's GET URL variables and return them as an associative array.
+  function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+  }
+
 
 });
