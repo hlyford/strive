@@ -2,13 +2,13 @@ todo
 
 product
 - open eval in new window
-- validate questions for blank strings as well
-- block refresh on eval
+  - pass user data to new window
+- timer for first question
+- handle refresh on eval
+  - if they refresh, read query string for which 
 
 
-
-general
-- server
+general if time
 - db
 - hosting (heroku)
 - modularize clientside JS more
