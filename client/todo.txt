@@ -2,10 +2,11 @@ todo
 
 product
 - open eval in new window
-  - pass user data to new window
+  - solution: pass user data to new window in query string
 - timer for first question
+  - solution: ready event on 'eval.html' load
 - handle refresh on eval
-  - if they refresh, read query string for which 
+  - maybe solution: if they refresh, read query string for the question
 
 
 general if time

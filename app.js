@@ -16,15 +16,18 @@ app.get('/', function(req, res) {
 
 // Get one user's data
 app.get('/applicants/:lastName', function(req, res) {
-  var lastName = req.params.lastName;
+  var lastName = req.params.lastName;  
   if (req.params.length === 0) {
-    res.send('Please enter with format: applicants/LAST_NAME.json');
+    res.send('Please enter with format: applicants/LAST_NAME');
   } else {
     // See if we have that user    
-    // Get the user's JSON
-    fs.readFile('./users_data/' + lastName + '.json', function(err, data) {
-      console.log(data);
-      res.send(JSON.stringify(data));
+    // Get the user's JSON    
+    fs.readFile('./users_data/' + lastName + '.json', "utf8", function(err, data) {      
+      if (err) {
+        res.send('We don\'t have a user with that last name.')
+      } else {
+        res.send(JSON.parse(data));
+      }      
     });    
   }
   
